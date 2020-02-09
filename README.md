@@ -1,7 +1,7 @@
 # day-planner
 A day planner app for managing time blocks during normal business hours
 
-![Screenshot of the complete application](...)
+![Screenshot of the complete application](https://github.com/chriseld/day-planner/blob/master/screenshots/applicationExample.png)
 
 ## About
 This day planner application dynamically generates time blocks for normal business hours (9 AM through 5 PM).
