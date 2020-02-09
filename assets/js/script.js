@@ -10,6 +10,8 @@ for(i = 0; i < timeBlocks.length; i++) {
     $(".container").append(container);
     var block = $("<div>", {id: "block" + i, "class": "row"});
     var blockTime = parseInt(timeBlocks[i]);
+    var blockText = localStorage.getItem(timeBlocks[i]);
+    console.log(blockText);
     if(blockTime < 6) {
         blockTime = blockTime + 12;
     }
@@ -25,6 +27,7 @@ for(i = 0; i < timeBlocks.length; i++) {
     
     var input = $("<textarea>", {id: "input" + 1, "class": "description"});
     $(input).attr("style", "width: 80%");
+    $(input).val(blockText);
     
     var saveBtn = $("<div>", {id: "btn" + i, "class": "saveBtn"});
     $(saveBtn).html("<img src='assets/img/save.svg'>");
@@ -41,14 +44,14 @@ $(".saveBtn").click(function() {
     var entry = $(this).siblings().closest("textarea").val();
     var time = $(this).siblings().closest(".hour").text();
     var date = moment().format("DD/MM/YYYY");
-    console.log(entry + time + date);
-    //localStorage.setItem()
+    localStorage.setItem("date", date);
+    localStorage.setItem(time, entry);
 })
 
 $( document ).ready(function() {
-    var lastUsed = localStorage.getItem(date);
+    var lastUsed = localStorage.getItem("date");
     var today = moment().format("DD/MM/YYYY");
-    if(localStorage != today) {
+    if(lastUsed != today) {
         localStorage.clear();
     }
 });
